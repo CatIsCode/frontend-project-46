@@ -1,5 +1,5 @@
-import path from "path";
-import fs from "fs";
+import path from 'path';
+import fs from 'fs';
 import parse from './parse.js';
 import treeBuilder from './treeBuilder.js';
 
@@ -8,7 +8,6 @@ const extractFormat = (filepath) => path.extname(filepath).slice(1);
 const getData = (filepath) => parse(fs.readFileSync(filepath, ('utf-8')), extractFormat(filepath));
 
 const genDiff = (filepath1, filepath2) => {
-
   const FullPathFile1 = getFullPath(filepath1);
   const FullPathFile2 = getFullPath(filepath2);
 
@@ -20,6 +19,6 @@ const genDiff = (filepath1, filepath2) => {
 
   const tree = treeBuilder(dataFile1, dataFile2);
   console.log(tree);
-}
+};
 
 export default genDiff;
