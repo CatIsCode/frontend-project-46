@@ -14,11 +14,8 @@ const genDiff = (filepath1, filepath2) => {
   const dataFile1 = getData(FullPathFile1);
   const dataFile2 = getData(FullPathFile2);
 
-  // console.log('data1--', dataFile1);
-  // console.log('data2--', dataFile2);
-
   const tree = treeBuilder(dataFile1, dataFile2);
-  console.log(tree);
+  return tree;
 };
 
 export default genDiff;
