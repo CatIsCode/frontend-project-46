@@ -15,7 +15,21 @@ const genDiff = (filepath1, filepath2) => {
   const dataFile2 = getData(FullPathFile2);
 
   const tree = treeBuilder(dataFile1, dataFile2);
-  return tree;
+  
+  return tree.map((node) => {
+    if (node.type === 'added') {
+       return `+ ${node.key}: ${node.value}`;
+    }
+    if (node.type === 'deleted') {
+       return `- ${node.key}: ${node.value}`;
+    }
+    if (node.type === 'changed') {
+       return `- ${node.key}: ${node.valueBefore}\n+ ${node.key}: ${node.valueAfter}`;
+    }
+    else {
+      return `  ${node.key}: ${node.value}`;
+    }
+  }).join('\n');
 };
 
 export default genDiff;

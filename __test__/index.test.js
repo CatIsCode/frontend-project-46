@@ -11,9 +11,6 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 
 const jsonTestFile = readFile('resultJSON.txt');
 
-
-
 test('testing JSON', () => {
-  console.log(genDiff('__fixtures__/file1.json', '__fixtures__/file1.json'));
   expect(genDiff('__fixtures__/file1.json', '__fixtures__/file1.json')).toEqual(jsonTestFile);
 });
