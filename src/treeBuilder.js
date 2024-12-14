@@ -15,6 +15,9 @@ const treeBuilder = (obj1, obj2) => {
         key, type: 'changed', valueBefore: obj1[key], valueAfter: obj2[key],
       };
     }
+    if (_.isObject(obj1[key]) && _.isObject(obj2[key])) {
+      return { type: 'nested', key, children: treeBuilder(obj1[key], obj2[key]) };
+    }
     return { key, type: 'unchanged', value: obj1[key] };
   });
   return result;
