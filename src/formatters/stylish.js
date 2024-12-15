@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const stringify = (value, depth = 0) => {
+const stringify = (valueNode, depthNode = 0) => {
   const iter = (node, depth) => {
     const indent = '  '.repeat(depth * 2);
     if (!_.isObject(node)) {
@@ -10,15 +10,14 @@ const stringify = (value, depth = 0) => {
     const result = arr.map(([key, value]) => `    ${indent}${key}: ${stringify(value, depth + 1)}`);
     return ['{', ...result, `${indent}}`].join('\n');
   };
-  return iter(value, depth);
+  return iter(valueNode, depthNode);
 };
 
-
 const stylish = (tree) => {
-  const iter = (tree, depth) => {
+  const iter = (nodes, depth) => {
     const spacesCount = 2;
     const indent = '  '.repeat(depth * spacesCount - 2);
-    const lines = tree.map((node) => {
+    const lines = nodes.map((node) => {
       switch (node.type) {
         case 'nested':
           return `  ${indent}  ${node.key}: ${iter(node.value, depth + 1)}`;

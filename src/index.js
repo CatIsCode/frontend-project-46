@@ -2,6 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import parse from './parse.js';
 import treeBuilder from './treeBuilder.js';
+import stylish from './formatters/stylish.js';
 
 const getFullPath = (filepath) => path.resolve(process.cwd(), filepath);
 const extractFormat = (filepath) => path.extname(filepath).slice(1);
@@ -15,21 +16,7 @@ const genDiff = (filepath1, filepath2) => {
   const dataFile2 = getData(FullPathFile2);
 
   const tree = treeBuilder(dataFile1, dataFile2);
-
-  const result = tree.map((node) => {
-    if (node.type === 'added') {
-      return `  + ${node.key}: ${node.value}`;
-    }
-    if (node.type === 'deleted') {
-      return `  - ${node.key}: ${node.value}`;
-    }
-    if (node.type === 'changed') {
-      return `  - ${node.key}: ${node.valueBefore}\n  + ${node.key}: ${node.valueAfter}`;
-    }
-    return `    ${node.key}: ${node.value}`;
-  }).join('\n');
-
-  return ['{', result, '}'].join('\n');
+  return stylish(tree);
 };
 
 export default genDiff;
