@@ -4,6 +4,9 @@ const treeBuilder = (obj1, obj2) => {
   const keys = _.sortBy(_.union(Object.keys(obj1), Object.keys(obj2)));
 
   const result = keys.map((key) => {
+    if (_.isObject(obj1[key]) && _.isObject(obj2[key])) {
+      return { key, type: 'nested', value: treeBuilder(obj1[key], obj2[key]) };
+    }
     if (!_.has(obj1, key) && _.has(obj2, key)) {
       return { key, type: 'added', value: obj2[key] };
     }
@@ -14,9 +17,6 @@ const treeBuilder = (obj1, obj2) => {
       return {
         key, type: 'changed', valueBefore: obj1[key], valueAfter: obj2[key],
       };
-    }
-    if (_.isObject(obj1[key]) && _.isObject(obj2[key])) {
-      return { type: 'nested', key, children: treeBuilder(obj1[key], obj2[key]) };
     }
     return { key, type: 'unchanged', value: obj1[key] };
   });
