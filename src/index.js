@@ -2,7 +2,6 @@ import path from 'path';
 import fs from 'fs';
 import parse from './parse.js';
 import treeBuilder from './treeBuilder.js';
-import stylish from './formatters/stylish.js';
 import formatter from './formatters/index.js';
 
 const getFullPath = (filepath) => path.resolve(process.cwd(), filepath);

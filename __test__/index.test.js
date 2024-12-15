@@ -23,12 +23,12 @@ test('testing yml stylish', () => {
 
 test('testing JSON plain', () => {
   const expectedValue = genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'plain');
-  const actualValue = readFile('resultPlain.txt')
+  const actualValue = readFile('resultPlain.txt');
   expect(expectedValue).toEqual(actualValue);
 });
 
 test('testing yml plain', () => {
   const expectedValue = genDiff('__fixtures__/file3.yml', '__fixtures__/file4.yml', 'plain');
-  const actualValue = readFile('resultPlain.txt')
+  const actualValue = readFile('resultPlain.txt');
   expect(expectedValue).toEqual(actualValue);
 });

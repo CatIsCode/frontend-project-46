@@ -11,7 +11,7 @@ const getFormatValue = (value) => {
 };
 
 const plain = (tree, path = '') => {
-  const lines = tree.filter((node) => node.type != 'unchanged').map((node) => {
+  const lines = tree.filter((node) => node.type !== 'unchanged').map((node) => {
     switch (node.type) {
       case 'nested':
         return plain(node.value, `${path}${node.key}.`);
@@ -28,6 +28,5 @@ const plain = (tree, path = '') => {
   });
   return lines.join('\n');
 };
-
 
 export default plain;
