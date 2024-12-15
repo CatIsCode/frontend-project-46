@@ -20,7 +20,7 @@ const plain = (tree, path = '') => {
       case 'deleted':
         return `Property '${path}${node.key}' was removed`;
       case 'changed': {
-        return `Property '${path}${node.key}' was updated. From ${getFormatValue(node.valBefore)} to ${getFormatValue(node.valAfter)}`;
+        return `Property '${path}${node.key}' was updated. From ${getFormatValue(node.valueBefore)} to ${getFormatValue(node.valueAfter)}`;
       }
       default:
         throw new Error(`Unknown ${node.type}, please try again`);
