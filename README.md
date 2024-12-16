@@ -12,18 +12,18 @@
 ## Установка.
 
 ### Клонируйте репозиторий:
-
+```
 git clone git@github.com:CatIsCode/frontend-project-46.git
-
+```
 ###  Выполните команду :
-
+```
 make install
-
+```
 ###  Установите локальные пакеты:
-
+```
 npm link
-
-### Сравнение в плоском формате stylish (по умолчанию):
+```
+### Сравнение в формате stylish (по умолчанию):
 
 [![asciicast](https://asciinema.org/a/fNNXMDMmmjbQD2Cq84glEvJ5v.svg)](https://asciinema.org/a/fNNXMDMmmjbQD2Cq84glEvJ5v)
 
