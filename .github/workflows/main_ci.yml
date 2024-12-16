@@ -40,7 +40,7 @@ jobs:
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v5.0.0
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.TEST_REPORTER_ID }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         with:
           coverageCommand: |
             npm test -- --coverage --coverageReporters=lcov
