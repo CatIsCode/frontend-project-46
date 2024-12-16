@@ -36,12 +36,11 @@ jobs:
       - run: make install
       - run: make lint
       - run: make test
-        # Test coverage and upload to Code Climate
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v5.0.0
+      #   # Add Code Climate secret key
         env:
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          CC_TEST_REPORTER_ID: ${{ secrets.SECRET_KEY }}
         with:
-          coverageCommand: |
-            npm test -- --coverage --coverageReporters=lcov
+          coverageCommand: make test-coverage
           debug: true
