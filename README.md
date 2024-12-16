@@ -5,6 +5,8 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/a98a972ebe4ec5e1d8f9/maintainability)](https://codeclimate.com/github/CatIsCode/frontend-project-46/maintainability)
 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a98a972ebe4ec5e1d8f9/test_coverage)](https://codeclimate.com/github/CatIsCode/frontend-project-46/test_coverage)
+
 # Описание
 
 ### Приложение для вычисления разницы в данных двух файлов для форматов JSON и YAML.
